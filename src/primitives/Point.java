@@ -8,11 +8,13 @@ public class Point {
 	  * @param xyz
 	  */
 		 
-	public Point(Double3 xyz) {
+	public Point(Double3 xyz) 
+	{
 		this.xyz=new Double3(xyz.d1,xyz.d2,xyz.d3);
 	}
 
-	public Point(double d1,double d2,double d3) {
+	public Point(double d1,double d2,double d3)
+	{
 		this.xyz=new Double3(d1,d2,d3);
 	}
 	
@@ -67,18 +69,19 @@ public class Point {
 	 * @param p- point
 	 * @return the squared distance between two points 
 	 */
-	double DistanceSquared(Point p) {
-		Point po=new Point(p.xyz.subtract(this.xyz));
+	double DistanceSquared(Double3 d) 
+	{
+		//Point p=new Point(d);
+		Point po=new Point(d.subtract(this.xyz));
 		return po.xyz.d1*po.xyz.d1 + po.xyz.d2*po.xyz.d2 + po.xyz.d3*po.xyz.d3;
 	}
 	/**
 	 * @param p- point
 	 * @return the distance between two points 
 	 */
-	 double Distance(Point p) {
-		 return Math.sqrt(DistanceSquared(p));
+	 double Distance(Double3 d) 
+	 {
+		//Point p=new Point(d);
+		return Math.sqrt(DistanceSquared(d));
 	 }
-	 
-	
-
 }
