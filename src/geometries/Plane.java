@@ -20,7 +20,7 @@ public class Plane implements Geometry{
 		super();
 		
 		this.q0 = q0;
-		this.normal =normalize(normal);
+		this.normal =normal.normalize();
 	}
 
 

@@ -26,7 +26,7 @@ public class Vector extends Point
 	{
 		return new Vector((super.xyz.scale(num)));
 	}
-	public d dotProduct (Vector other)
+	public double dotProduct (Vector other)
 	{
 		/* יש כאן מלא בדיקות לעשות על הוקטורים*/
 		Vector tmp= new Vector(this.xyz.product(other.xyz));
