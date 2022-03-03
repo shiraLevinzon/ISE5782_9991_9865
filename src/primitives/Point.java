@@ -13,11 +13,10 @@ public class Point {
 	  * @param xyz
 	  */
 		 
-	public Point(Double3 xyz) 
+	public Point(Double3 xyz)
 	{
 		this.xyz=xyz;
 	}
-
 	public Point(double d1,double d2,double d3)
 	{
 		this.xyz=new Double3(d1,d2,d3);
@@ -57,7 +56,7 @@ public class Point {
 	 * @param rhs right handle side operand for addition
 	 * @return result of add
 	 */
-	Point add(Vector v) {
+	public Point add(Vector v) {
 		return new Point(v.xyz.add(this.xyz));
 	}
 	/**
@@ -67,7 +66,7 @@ public class Point {
 	 * @param rhs right handle side operand for addition
 	 * @return result of add
 	 */
-	Vector subtract(Point p) {
+	public Vector subtract(Point p) {
 		return new Vector(p.xyz.subtract(this.xyz));
 	}
 	/**
