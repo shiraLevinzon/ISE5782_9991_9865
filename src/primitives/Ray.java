@@ -8,7 +8,7 @@ public class Ray {
 		Vector dir;
 		Point p0;
 		public Ray(Vector dir, Point p0) {
-			this.dir =normalize(dir);
+			this.dir =dir.normalize();
 			this.p0 = p0;
 		}
 		

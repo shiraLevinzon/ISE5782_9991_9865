@@ -13,14 +13,9 @@ public class Point {
 	  * @param xyz
 	  */
 		 
-<<<<<<< HEAD
 	public Point(Double3 xyz) 
 	{
-		this.xyz=new Double3(xyz.d1,xyz.d2,xyz.d3);
-=======
-	public Point(Double3 xyz) {
 		this.xyz=xyz;
->>>>>>> branch 'master' of https://github.com/shiraLevinzon/ISE5782_9991_9865
 	}
 
 	public Point(double d1,double d2,double d3)
