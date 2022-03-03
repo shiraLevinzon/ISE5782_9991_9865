@@ -2,14 +2,13 @@ package primitives;
 /**
  * Class Point is the basic class representing a … of Euclidean primitives in Cartesian
  * 3-Dimensional coordinate system.
- * @author shira levinzon and avigaul uzan
+ * @author shira levinzon and avigail uzan
 */
 
 public class Point {
 	 Double3 xyz;
-	 /**constructors
-	  * constructor that receiving the values of the three coordinates from Double
-	  * constructors that receiving Object from Double3 type
+	 /**
+	  * constructor that receiving Object from Double3 type 
 	  * @param xyz
 	  */
 		 
@@ -17,14 +16,18 @@ public class Point {
 	{
 		this.xyz=xyz;
 	}
+	/**
+	 * constructor that receiving the values of the three coordinates from Double
+	 * @param d1
+	 * @param d2
+	 * @param d3
+	 */
 	public Point(double d1,double d2,double d3)
 	{
 		this.xyz=new Double3(d1,d2,d3);
 	}
 	
-	/**
-	 * Override equals func that compare between two points and return true if they equal,otherwise false
-	 */
+	
 	@Override
 	  public boolean equals(Object obj) {
 	      if (this == obj) return true;
@@ -33,21 +36,13 @@ public class Point {
 	      Point other = (Point)obj;
 	      return this.xyz.equals(other.xyz);
 	   }
-	/**
-	 * Override to string func
-	 * @return String
-	 */ 
+	
+	
 	@Override
 	public String toString() {
 		return "Point [xyz=" + xyz.toString() + "]";
 	}
-	/**
-	 * Get Func
-	 * @return Double3
-	 */
-	/*public Double3 getXyz() {
-		return xyz;
-	}*/
+
 	
 	/**
 	 * Sum two floating point triads into a new triad where each couple of numbers
@@ -70,8 +65,9 @@ public class Point {
 		return new Vector(this.xyz.subtract(p.xyz));
 	}
 	/**
+	 * calculate squared distance between two points
 	 * @param p- point
-	 * @return the squared distance between two points 
+	 * @return squared distance between two points 
 	 */
 	double DistanceSquared(Double3 d) 
 	{
@@ -80,8 +76,9 @@ public class Point {
 		return po.xyz.d1*po.xyz.d1 + po.xyz.d2*po.xyz.d2 + po.xyz.d3*po.xyz.d3;
 	}
 	/**
+	 * calculate the distance between two points 
 	 * @param p- point
-	 * @return the distance between two points 
+	 * @return distance between two points 
 	 */
 	 double Distance(Double3 d) 
 	 {
