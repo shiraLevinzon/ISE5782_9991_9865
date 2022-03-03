@@ -1,52 +1,47 @@
 package primitives;
 public class Vector extends Point
 {
-	public Vector(double d1, double d2, double d3)
-	{
+	public Vector(double d1, double d2, double d3){
 		super(d1,d2,d3);
 		if(this.xyz.equals( Double3.ZERO))
 			throw new IllegalArgumentException("the argument isn't lagal");
 	}
-	public Vector(Double3 xyz) 
-	{
+	
+	public Vector(Double3 xyz) {
 		super(xyz);
 		if(this.xyz.equals( Double3.ZERO))
 			throw new IllegalArgumentException("the argument isn't lagal");
 	}
+	
 	@Override
-	public String toString()
-	{
+	public String toString(){
 		return "Vector- " + super.toString();
 	}
-	public Vector add(Vector other)
-	{
+	public Vector add(Vector other){
 		return new Vector((super.add(other)).xyz);
 	}
-	public Vector scale(int num)
-	{
+	
+	public Vector scale(int num){
 		return new Vector((super.xyz.scale(num)));
 	}
-	public double dotProduct (Vector other)
-	{
-		/* יש כאן מלא בדיקות לעשות על הוקטורים*/
+	public double dotProduct (Vector other){
 		Vector tmp= new Vector(this.xyz.product(other.xyz));
 		return tmp.xyz.d1+tmp.xyz.d2+tmp.xyz.d3;
 	}
-	public Vector crossProduct (Vector other)
-	{
-		/* יש כאן מלא בדיקות לעשות על הוקטורים*/
+	
+	public Vector crossProduct (Vector other){
 		return new Vector(this.xyz.d2*other.xyz.d3-this.xyz.d3*other.xyz.d2,this.xyz.d3*other.xyz.d1-this.xyz.d1*other.xyz.d3,this.xyz.d1*other.xyz.d2-this.xyz.d2*other.xyz.d1);
 	}
-	public double lengthSquared ()
-	{
+	
+	public double lengthSquared (){
 		return super.DistanceSquared(Double3.ZERO);
 	}
-	public double length()
-	{
+	
+	public double length(){
 		return Math.sqrt(this.lengthSquared());
 	}
-	public Vector normalize()
-	{
+	
+	public Vector normalize(){
 		//double t=this.length();
 		return new Vector(this.xyz.d1/this.length(),this.xyz.d2/this.length(),this.xyz.d3/this.length());
 	}

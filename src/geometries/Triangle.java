@@ -4,8 +4,11 @@ import primitives.Point;
 
 public class Triangle extends Polygon implements Geometry {
 
-	public Triangle(Point... vertices)
-	{
+	/**
+	 * constructor that receive three points and activate the super constructor to create the triangle 
+	 * @param vertices
+	 */
+	public Triangle(Point... vertices){
 		super(vertices);
 	}
 
