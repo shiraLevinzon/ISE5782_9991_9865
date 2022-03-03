@@ -12,8 +12,7 @@ public class Point {
 	  * @param xyz
 	  */
 		 
-	public Point(Double3 xyz)
-	{
+	public Point(Double3 xyz){
 		this.xyz=xyz;
 	}
 	/**
@@ -22,8 +21,7 @@ public class Point {
 	 * @param d2
 	 * @param d3
 	 */
-	public Point(double d1,double d2,double d3)
-	{
+	public Point(double d1,double d2,double d3){
 		this.xyz=new Double3(d1,d2,d3);
 	}
 	
