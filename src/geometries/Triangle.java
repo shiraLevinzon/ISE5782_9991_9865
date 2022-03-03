@@ -4,9 +4,9 @@ import primitives.Point;
 
 public class Triangle extends Polygon implements Geometry {
 
-	public Triangle(Point... vertices) {
+	public Triangle(Point... vertices)
+	{
 		super(vertices);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
