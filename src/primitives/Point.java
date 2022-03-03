@@ -16,7 +16,14 @@ public class Point {
 	{
 		this.xyz=xyz;
 	}
-	public Point(double d1,double d2,double d3){
+	/**
+	 * constructor that receiving the values of the three coordinates from Double
+	 * @param d1
+	 * @param d2
+	 * @param d3
+	 */
+	public Point(double d1,double d2,double d3)
+	{
 		this.xyz=new Double3(d1,d2,d3);
 	}
 	
