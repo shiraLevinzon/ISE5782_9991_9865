@@ -1,0 +1,73 @@
+/**
+ * 
+ */
+package unittests;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+import primitives.Point;
+import primitives.Vector;
+
+/**
+ * @author user
+ *
+ */
+class PointTests {
+
+	/**
+	 * Test method for {@link primitives.Point#add(primitives.Vector)}.
+	 */
+	@Test
+	void testAdd() {
+		Point p=new Point(1,2,3);
+		Vector p1=new Vector(1,1,1);
+		Point p2=p.add(p1);
+		Point p3=new Point(2,3,4);
+		assertEquals(p3,p2);
+		
+		p=new Point(-1,-2,-3);
+		 p1=new Vector(-1,-1,-1);
+		 p2=p.add(p1);
+		 p3=new Point(-2,-3,-4);
+		assertEquals(p3,p2);
+		
+		 p=new Point(1,2,3);
+		 p1=new Vector(-1,-1,-1);
+		 p2=p.add(p1);
+		 p3=new Point(0,1,2);
+		assertEquals(p3,p2);
+		
+		p=new Point(1,2,3);
+		 p1=new Vector(-1,-2,-3);
+		 p2=p.add(p1);
+		 p3=new Point(0,0,0);
+		assertEquals(p3,p2);
+	}
+
+	/**
+	 * Test method for {@link primitives.Point#subtract(primitives.Point)}.
+	 */
+	@Test
+	void testSubtract() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link primitives.Point#DistanceSquared(primitives.Double3)}.
+	 */
+	@Test
+	void testDistanceSquared() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link primitives.Point#Distance(primitives.Double3)}.
+	 */
+	@Test
+	void testDistance() {
+		fail("Not yet implemented");
+	}
+
+}
