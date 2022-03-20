@@ -86,22 +86,22 @@ class PointTests {
 		//positive with positive
 		Point p=new Point (1,1,1);
 		Point p2= new Point(2,2,2);
-		double d=p.DistanceSquared(p2.xyz);
+		double d=p.DistanceSquared(p2);
 		assertEquals(3,d);
 		//positive with negative
 		 p=new Point (1,1,1);
 		 p2= new Point(-2,-2,-2);
-		 d=p.DistanceSquared(p2.xyz);
+		 d=p.DistanceSquared(p2);
 		assertEquals(27,d);
 		//negative with positive 	
 		 p=new Point (-1,-1,-1);
 		 p2= new Point(2,2,2);
-		 d=p.DistanceSquared(p2.xyz);
+		 d=p.DistanceSquared(p2);
 		 assertEquals(27,d);
 		//negative with negative
 		 p=new Point (-1,-1,-1);
 		 p2= new Point(-2,-2,-2);
-		 d=p.DistanceSquared(p2.xyz);
+		 d=p.DistanceSquared(p2);
 		 assertEquals(3,d);
 	}
 
@@ -113,24 +113,25 @@ class PointTests {
 		//positive with positive
 				Point p=new Point (1,1,1);
 				Point p2= new Point(2,2,2);
-				double d=p.Distance(p2.xyz);
+				double d=p.Distance(p2);
 				assertEquals(Math.sqrt(3),d);
 				//positive with negative
 				 p=new Point (1,1,1);
 				 p2= new Point(-2,-2,-2);
-				 d=p.Distance(p2.xyz);
+				 d=p.Distance(p2);
 				assertEquals(Math.sqrt(27),d);
 				//negative with positive 	
 				 p=new Point (-1,-1,-1);
 				 p2= new Point(2,2,2);
-				 d=p.Distance(p2.xyz);
+				 d=p.Distance(p2);
 				 assertEquals(Math.sqrt(27),d);
 				//negative with negative
 				 p=new Point (-1,-1,-1);
 				 p2= new Point(-2,-2,-2);
-				 d=p.Distance(p2.xyz);
+				 d=p.Distance(p2);
 				 assertEquals(Math.sqrt(3),d);
 		
 	}
+	//Point (0,0,0)!! exception must !
 
 }

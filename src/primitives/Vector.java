@@ -76,7 +76,8 @@ public class Vector extends Point
 	 * @return length of the vector squared
 	 */
 	public double lengthSquared (){
-		return super.DistanceSquared(Double3.ZERO);
+		Point p=new Point (Double3.ZERO);
+		return super.DistanceSquared(p);
 	}
 	/**
 	 * Calculate the length of the vector
@@ -86,7 +87,7 @@ public class Vector extends Point
 		return Math.sqrt(this.lengthSquared());
 	}
 	/**
-	 * normalize this vector
+	 * normalize the vector
 	 * @return a new vector which is the original vector, normalized
 	 */
 	public Vector normalize(){

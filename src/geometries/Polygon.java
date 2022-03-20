@@ -15,11 +15,11 @@ public class Polygon implements Geometry {
 	/**
 	 * List of polygon's vertices
 	 */
-	protected List<Point> vertices;
+	private List<Point> vertices;
 	/**
 	 * Associated plane in which the polygon lays
 	 */
-	protected Plane plane;
+	private Plane plane;
 	private int size;
 
 	/**
@@ -81,11 +81,17 @@ public class Polygon implements Geometry {
 			if (positive != (edge1.crossProduct(edge2).dotProduct(n) > 0))
 				throw new IllegalArgumentException("All vertices must be ordered and the polygon must be convex");
 		}
-		size = vertices.length;
+		this.size = vertices.length;
 	}
 
 	@Override
 	public Vector getNormal(Point point) {
 		return plane.getNormal();
+	}
+
+	@Override
+	public List<Point> findIntsersections(Ray ray) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
