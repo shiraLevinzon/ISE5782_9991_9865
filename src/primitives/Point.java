@@ -6,7 +6,7 @@ package primitives;
 */
 
 public class Point {
-	public Double3 xyz;
+	 Double3 xyz;
 	 /**
 	  * constructor that receiving Object from Double3 type 
 	  * @param xyz
@@ -67,9 +67,9 @@ public class Point {
 	 * @param p- point
 	 * @return squared distance between two points 
 	 */
-	public double DistanceSquared(Double3 d) {
+	public double DistanceSquared(Point p) {
 		//Point p=new Point(d);
-		Point po=new Point(d.subtract(this.xyz));
+		Point po=new Point(p.xyz.subtract(this.xyz));
 		return po.xyz.d1*po.xyz.d1 + po.xyz.d2*po.xyz.d2 + po.xyz.d3*po.xyz.d3;
 	}
 	/**
@@ -77,8 +77,8 @@ public class Point {
 	 * @param p- point
 	 * @return distance between two points 
 	 */
-	public  double Distance(Double3 d) {
+	public  double Distance(Point p) {
 		//Point p=new Point(d);
-		return Math.sqrt(DistanceSquared(d));
+		return Math.sqrt(DistanceSquared(p));
 	 }
 }

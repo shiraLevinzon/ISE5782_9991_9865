@@ -1,12 +1,15 @@
 package geometries;
 
+import java.util.List;
+
 import primitives.Point;
+import primitives.Ray;
 import primitives.Vector;
 
 public class Plane implements Geometry{
 	
-	Point q0;
-	Vector normal;
+	private Point q0;
+	private Vector normal;
 	
 /**
  *constructor who gets 3 points and creates a plain
@@ -55,6 +58,12 @@ public class Plane implements Geometry{
 	}
 	@Override
 	public Vector getNormal(Point p) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Point> findIntsersections(Ray ray) {
 		// TODO Auto-generated method stub
 		return null;
 	}	
