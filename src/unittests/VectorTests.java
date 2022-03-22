@@ -16,6 +16,7 @@ import primitives.Vector;
  * @author user
  *
  */
+
 class VectorTests {
 	Vector v1 = new Vector(1, 2, 3);
 	Vector v2 = new Vector(-2, -4, -6);
@@ -73,7 +74,7 @@ class VectorTests {
 		    } catch (Exception e) {}
 	}
 		
-		}
+		
 
 	/**
 	 * Test method for {@link primitives.Vector#crossProduct(primitives.Vector)}.
@@ -142,9 +143,6 @@ class VectorTests {
 		fail("Normalized() should throw an exception, but it failed");
 	    } catch (Exception e) {}
 		
-		
-		
-
 	}
 
 }
