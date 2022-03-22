@@ -57,8 +57,7 @@ public class Vector extends Point
 	 * @return Scalar product between this to other
 	 */
 	public double dotProduct (Vector other){
-		Vector tmp= new Vector(this.xyz.product(other.xyz));
-		return tmp.xyz.d1+tmp.xyz.d2+tmp.xyz.d3;
+		return this.xyz.d1*other.xyz.d1 + this.xyz.d2*other.xyz.d2 + this.xyz.d3*other.xyz.d3;
 	}
 	
 	/**
