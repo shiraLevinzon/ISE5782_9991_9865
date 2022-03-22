@@ -82,7 +82,7 @@ class VectorTests {
 	@Test
 	void testCrossProduct() {		
 		
-        // ============ Equivalence Partitions Tests ==============
+        // ============ Equivalence Partitions Tests ===============
         Vector vr = v1.crossProduct(v3);
 
         // TC01: Test that length of cross-product is proper (orthogonal vectors taken
