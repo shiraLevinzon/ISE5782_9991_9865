@@ -15,11 +15,11 @@ public class Polygon implements Geometry {
 	/**
 	 * List of polygon's vertices
 	 */
-	private List<Point> vertices;
+	protected List<Point> vertices;
 	/**
 	 * Associated plane in which the polygon lays
 	 */
-	private Plane plane;
+	protected Plane plane;
 	private int size;
 
 	/**
