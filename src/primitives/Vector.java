@@ -44,11 +44,11 @@ public class Vector extends Point
 	
 	/**
 	 * multiplies a vector by a number
-	 * @param num
+	 * @param t
 	 * @return a new vector multiplied by num       
 	 */
-	public Vector scale(int num){
-		return new Vector((super.xyz.scale(num)));
+	public Vector scale(double t){
+		return new Vector((super.xyz.scale(t)));
 	}
 	
 	/**
