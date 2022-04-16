@@ -1,4 +1,6 @@
 package geometries;
+import java.util.List;
+
 import primitives.*;
 /**
  *return the normal of all the geometric shapes realized from it 
@@ -7,5 +9,7 @@ import primitives.*;
  */
 public interface Geometry extends Intersectable {
 
-	Vector getNormal(Point p); 
+	Vector getNormal(Point p);
+
+	List<Point> findGeoIntersections(Ray ray); 
 }

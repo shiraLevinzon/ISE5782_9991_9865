@@ -22,14 +22,14 @@ public class Sphere implements Geometry  {
 		return null;
 	}
 	@Override
-	public List<GeoPoint> findGeoIntersections(Ray ray) 
+	public List<Point> findGeoIntersections(Ray ray) 
 	{
 		//point and vector of ray
 		Point3D p0 = ray.getP0();		//ray point
 		Vector v = ray.getDir();		//ray vector
 
 		if(p0.equals(center))       	//if the starting point of the ray is the center
-			return List.of(new GeoPoint(this,ray.getPoint(radius)));//return the intersection point
+			return List.of(new Point(this,ray.getPoint(radius)));//return the intersection point
 		
 		Vector u=center.subtract(p0);	//the vector between center and ray
 		double tm=v.dotProduct(u); 		//the scale for the ray in order to get parallel to the sphere center

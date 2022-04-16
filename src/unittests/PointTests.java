@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import geometries.Sphere;
 import primitives.Point;
 import primitives.Vector;
 
@@ -159,8 +160,8 @@ public class SphereTests {
 
 	public void testGetNormal()
 	 {
-		Point3D p= new Point3D(1, 1, 6);
-		Point3D p1=new Point3D(1,1,1);
+		Point p= new Point(1, 1, 6);
+		Point p1=new Point(1,1,1);
 		Sphere s = new Sphere(p1,5);
 		Vector v= p1.subtract(p).normalize();
 
