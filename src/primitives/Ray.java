@@ -17,5 +17,5 @@ public class Ray {
 			this.p0 = p0;
 		}
 		
-
+//להוסיף גט של DIR
 }
