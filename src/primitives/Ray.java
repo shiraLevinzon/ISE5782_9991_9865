@@ -16,6 +16,9 @@ public class Ray {
 			this.dir =dir.normalize();
 			this.p0 = p0;
 		}
+		public Point getPoint(double t1) {
+			return this.p0;
+		}
 		
 //להוסיף גט של DIR
 }

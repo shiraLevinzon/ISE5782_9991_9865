@@ -41,18 +41,15 @@ public class Sphere implements Geometry  {
 		double t1=tm+th;
 		double t2=tm-th;
 		if(t1>0&&t2>0&&!isZero(ray.getPoint(t1).subtract(center).dotProduct(v))&&!isZero(ray.getPoint(t2).subtract(center).dotProduct(v))) //if orthogonal -> no intersection
-			return List.of(new GeoPoint(this,ray.getPoint(t1)),new GeoPoint(this,ray.getPoint(t2)));
+			return List.of(new Point(this,ray.getPoint(t1)),new Point(this,ray.getPoint(t2)));
 		else if(t1>0&&!isZero(ray.getPoint(t1).subtract(center).dotProduct(v))) //if only t1 is not orthogonal and positive
-			return List.of(new GeoPoint(this,ray.getPoint(t1)));
+			return List.of(new Point(this,ray.getPoint(t1)));
 		else if(t2>0&&!isZero(ray.getPoint(t2).subtract(center).dotProduct(v))) //if only t2 is not orthogonal and positive
-			return List.of(new GeoPoint(this,ray.getPoint(t2)));
+			return List.of(new Point(this,ray.getPoint(t2)));
 		else
 			return null;//no intersections
 	}
-
-
-
 }
 
 
-}
+

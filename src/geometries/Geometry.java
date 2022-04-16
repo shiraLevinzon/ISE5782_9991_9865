@@ -11,5 +11,4 @@ public interface Geometry extends Intersectable {
 
 	Vector getNormal(Point p);
 
-	List<Point> findGeoIntersections(Ray ray); 
 }
