@@ -57,11 +57,15 @@ public class Point {
 	 * numbers is subtracted
 	 * 
 	 * @param rhs right handle side operand for addition
-	 * @return result of add
+	 * @return result of e
 	 */
 	public Vector subtract(Point p) {
 		return new Vector(this.xyz.subtract(p.xyz));
 	}
+	public Double3 getXyz() {
+		return xyz;
+	}
+	
 	/**
 	 * calculate squared distance between two points
 	 * @param p- point

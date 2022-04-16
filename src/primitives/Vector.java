@@ -44,11 +44,11 @@ public class Vector extends Point
 	
 	/**
 	 * multiplies a vector by a number
-	 * @param num
+	 * @param t
 	 * @return a new vector multiplied by num       
 	 */
-	public Vector scale(int num){
-		return new Vector((super.xyz.scale(num)));
+	public Vector scale(double t){
+		return new Vector((super.xyz.scale(t)));
 	}
 	
 	/**
@@ -57,8 +57,7 @@ public class Vector extends Point
 	 * @return Scalar product between this to other
 	 */
 	public double dotProduct (Vector other){
-		Vector tmp= new Vector(this.xyz.product(other.xyz));
-		return tmp.xyz.d1+tmp.xyz.d2+tmp.xyz.d3;
+		return this.xyz.d1*other.xyz.d1 + this.xyz.d2*other.xyz.d2 + this.xyz.d3*other.xyz.d3;
 	}
 	
 	/**
