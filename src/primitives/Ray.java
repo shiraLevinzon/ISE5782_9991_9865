@@ -16,8 +16,12 @@ public class Ray {
 			this.dir =dir.normalize();
 			this.p0 = p0;
 		}
-		public Point getPoint(double t1) {
+		public Point getPoint(\) {
 			return this.p0;
+		}
+		public Vector getDir() {
+			// TODO Auto-generated method stub
+			return null;
 		}
 		
 //להוסיף גט של DIR

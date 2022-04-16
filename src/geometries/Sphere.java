@@ -10,11 +10,6 @@ public class Sphere implements Geometry  {
 	private Double radius;
 	private Point center;
 
-	@Override
-	public List<Point> findIntsersections(Ray ray) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public Vector getNormal(Point p) {
@@ -22,10 +17,9 @@ public class Sphere implements Geometry  {
 		return null;
 	}
 	@Override
-	public List<Point> findGeoIntersections(Ray ray) 
-	{
+	public List<Point> findIntsersections(Ray ray) {
 		//point and vector of ray
-		Point3D p0 = ray.getP0();		//ray point
+		Point p0 = ray.getPoint();		//ray point
 		Vector v = ray.getDir();		//ray vector
 
 		if(p0.equals(center))       	//if the starting point of the ray is the center
