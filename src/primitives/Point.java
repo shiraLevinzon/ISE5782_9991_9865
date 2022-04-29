@@ -6,7 +6,7 @@ package primitives;
 */
 
 public class Point {
-	 Double3 xyz;
+	 protected Double3 xyz;
 	 /**
 	  * constructor that receiving Object from Double3 type 
 	  * @param xyz

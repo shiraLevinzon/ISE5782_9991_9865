@@ -134,44 +134,4 @@ class PointTests {
 		
 	}
 	//Point (0,0,0)!! exception must !
-	
-	/*
-
-public class TubeTests {
-
-	public void testGetNormal() {
-		Ray r= new Ray( new Point3D(0,0,0),new Vector(0,1,0)); הפוך
-		Tube t= new Tube(r,1);
-		Point3D p = new Point3D(1,0,1);
-		Vector n= t.getNormal(p);
-		assertTrue("bad normal to tube",isZero(r.getDir().dotProduct(n)));
-        // 
-        try {
-        	new Tube(r,0).getNormal(p);
-            fail("GetNormal() should throw an exception, but it failed");
-        } catch (Exception e) {}
-	}
-
-}
-*/
-	
-
-public class SphereTests {
-
-	public void testGetNormal()
-	 {
-		Point p= new Point(1, 1, 6);
-		Point p1=new Point(1,1,1);
-		Sphere s = new Sphere(p1,5);
-		Vector v= p1.subtract(p).normalize();
-
-		assertEquals("Bad normal to sphere",v,s.getNormal(p));//regular case
-		// 
-		try {
-			new Sphere(p1,0).getNormal(p);//a case where the radius is 0, the ctor of sphere will throw an exception
-			fail("GetNormal() should throw an exception, but it failed");
-		} catch (Exception e) {}
-	}
-}
-
 }
