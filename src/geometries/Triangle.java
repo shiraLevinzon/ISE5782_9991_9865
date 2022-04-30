@@ -57,7 +57,6 @@ public class Triangle extends Polygon implements Geometry {
 			return null;//the ray is on the plane but outside the triangle
 	}
 
-	}
 
 
 	@Override

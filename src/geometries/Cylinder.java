@@ -8,6 +8,11 @@ import primitives.Vector;
 
 public class Cylinder  extends Tube {
 	
+	public Cylinder(Ray axisRay, double radius) {
+		super(axisRay, radius);
+		// TODO Auto-generated constructor stub
+	}
+
 	private double height;
 	
 	@Override

@@ -12,6 +12,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import geometries.Sphere;
+import primitives.Double3;
 import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
@@ -94,7 +95,7 @@ class SphereTests {
 			// TC14: Ray starts at sphere and goes inside (1 points)
 			result = sphere.findIntsersections(new Ray(new Vector(-1, 0, 0),new Point(2, 0, 0)));
 			assertEquals("Wrong number of points", 1, result.size());
-			assertEquals("Ray starts at sphere and goes inside and cross in other place", Point.ZERO, result.get(0));
+			assertEquals("Ray starts at sphere and goes inside and cross in other place",Double3.ZERO, result.get(0));
 
 			// TC15: Ray starts inside (1 points)
 			result = sphere.findIntsersections(new Ray(new Vector(1, 0, 0),new Point(1.5, 0, 0)));
@@ -134,6 +135,4 @@ class SphereTests {
 					sphere.findIntsersections(new Ray( new Vector(0, 1, 0),new Point(-0.5, 0, 0))));
 		}
 	}
-
-}
 

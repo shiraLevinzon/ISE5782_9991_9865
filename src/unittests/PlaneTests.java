@@ -81,7 +81,7 @@ class PlaneTests {
 			// Ray is parallel to the plane
 			// TC03: the ray is included in the plane
 			r = new Ray(new Vector(2, 1, 0),new Point(1, 2, -3));
-			assertEquals( null, pl.findIntsersections(r),"wrong intersection! the ray is parallel and included in the plane",);
+			assertEquals( null, pl.findIntsersections(r),"wrong intersection! the ray is parallel and included in the plane");
 			// TC04: the ray is not included in the plane
 			r = new Ray(new Vector(2, 1, 0),new Point(1, 2, -2));
 			assertEquals("wrong intersection! the ray is parallel and not included in the plane", null, pl.findIntsersections(r));

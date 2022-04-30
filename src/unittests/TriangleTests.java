@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-mport java.util.List;
+import java.util.List;
 import static primitives.Util.*;
 
 import java.util.List;
