@@ -16,19 +16,17 @@ public class Ray {
 			this.dir =dir.normalize();
 			this.p0 = p0;
 		}
-		public Point getPoint() {
-			return this.p0;
-		}
-		
 		public Point getPoint(double t) {
-			return  p0.add(dir.scale(t));
+			try {
+				return p0.add(dir.scale(t));
+			} catch (Exception e) {
+				return p0;
+			}
 		}
 		public Point getP0() {
-			// TODO Auto-generated method stub
 			return p0;
 		}
 		public Vector getDir() {
-			// TODO Auto-generated method stub
 			return dir;
 		}
 		
