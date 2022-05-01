@@ -47,11 +47,8 @@ public class Triangle extends Polygon implements Geometry {
 
 		if ((s1 > 0 && s2 > 0 && s3 > 0) || (s1 < 0 && s2 < 0 && s3 < 0)) //if all the s1,s2,s3 are all positive or negative- the ray intersects the triangle.
 		{
-            for (Point geo : intersections) 
-            {
-                geo.geometry = this;//triangle and not plane
-            }
-			return intersections;//return the intersection
+			return List.of(new GeoPoint(this, intersections.get(0).point));
+		
 		}
 		else
 			return null;//the ray is on the plane but outside the triangle
