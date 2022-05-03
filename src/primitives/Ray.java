@@ -1,4 +1,7 @@
 package primitives;
+
+import java.util.List;
+
 /**
  * Class Ray is the basic class representing a Ray of Euclidean primitives in Cartesian
  * Object is founded in geometry
@@ -29,6 +32,14 @@ public class Ray {
 		public Vector getDir() {
 			return dir;
 		}
-		
-//להוסיף גט של DIR
+		/***
+		 * 
+		 * @param list of points
+		 * @return the closest poont to the specific ray
+		 */
+		public Point findClosestPoint (List<Point> points) {
+				return null;
+			}			
 }
+		
+

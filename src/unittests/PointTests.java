@@ -132,5 +132,4 @@ class PointTests {
 				 assertEquals(Math.sqrt(3),d);
 		
 	}
-	//Point (0,0,0)!! exception must !
 }

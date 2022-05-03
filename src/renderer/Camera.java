@@ -3,6 +3,9 @@
  */
 package renderer;
 
+import java.util.MissingResourceException;
+
+import primitives.Color;
 import primitives.Point;
 import primitives.Ray;
 import primitives.Util;
@@ -20,8 +23,18 @@ public class Camera {
 	private double width;
 	private double height;
 	private double distance;
+	private ImageWriter imageWriter;
+	private RayTracerBase rayTracerBase;
 	public Point getP0() {
 		return p0;
+	}
+	public Camera setImageWriter(ImageWriter imageWriter) {
+		this.imageWriter = imageWriter;
+		return this;
+	}
+	public Camera setRayTracerBase(RayTracerBase rayTracerBase) {
+		this.rayTracerBase = rayTracerBase;		
+		return this;
 	}
 	public Vector getvUp() {
 		return vUp;
@@ -92,6 +105,7 @@ public class Camera {
 	 * @return ray that passes in given pixel in the grid
 	 */
 	public Ray constructRayThroughPixel(int nX, int nY, int j, int i) {
+
 		// image center
 		Point pc = p0.add(vTo.scale(distance));
 		// ratio
@@ -111,8 +125,31 @@ public class Camera {
 
 		return new Ray(vij,p0);
 	}
-
-	
-
-
+	public void renderImage()
+	{
+		if(this.p0==null || this.vTo==null|| this.vUp==null || this.rayTracerBase==null || this.vRight==null||this.imageWriter==null)
+			throw new MissingResourceException("one of the properties contains empty value", null, null);
+		throw new UnsupportedOperationException();
+	}
+	public void printGrid(int interval, Color color) 
+	{
+		if(this.imageWriter==null)
+			throw new MissingResourceException("image writer failed", null, null);
+		var writer = new ImageWriter("firstImage", 800, 500);
+		for (int i = 0; i < 500; i++) {
+			for (int j = 0; j < 800; j++) {
+				if (i % 50 == 0 || j % 50 == 0 || i == 799 || j == 499)
+					writer.writePixel(j, i, color);
+				else
+					writer.writePixel(j, i, new primitives.Color(0,0,255));
+			}
+		}
+		writer.writeToImage();
+	}
+	public void writeToImage()
+	{
+		if(this.imageWriter==null)
+			throw new MissingResourceException("image writer failed", null, null);
+		imageWriter.writeToImage();
+	}
 }
