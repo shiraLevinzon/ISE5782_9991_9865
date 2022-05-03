@@ -130,8 +130,13 @@ public class Geometries implements Intersectable {
 						points = new LinkedList<Point>(result);
 					else
 						points.addAll(result);
-			}	}
+			}
+		}
+		return points;
+	}
 }
+	
+
 	
 
 

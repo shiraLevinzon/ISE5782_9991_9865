@@ -90,7 +90,7 @@ public class Polygon implements Geometry {
 		return plane.getNormal();
 	}
 
-	@Override
+	/*@Override
 	public List<GeoPoint> findGeoIntersections(Ray ray, double max) {
 		var myList = plane.findGeoIntersections(ray, max);
 		if (myList == null)
@@ -126,5 +126,11 @@ public class Polygon implements Geometry {
 		}
 
 		return List.of(new GeoPoint(this, myList.get(0).point));
+	}
+*/
+	@Override
+	public List<Point> findIntsersections(Ray ray) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

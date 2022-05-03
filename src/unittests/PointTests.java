@@ -11,7 +11,7 @@ import primitives.Point;
 import primitives.Vector;
 
 /**
- * @author user
+ * @author shira and avigail
  *
  */
 class PointTests {

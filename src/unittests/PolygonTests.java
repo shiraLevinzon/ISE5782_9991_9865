@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 /**
- * @author shira
+ * @author shira and avigail
  *
  */
 class PolygonTests {

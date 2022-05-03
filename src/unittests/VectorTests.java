@@ -2,18 +2,15 @@
  * 
  */
 package unittests;
-import static java.lang.System.out;
 import static org.junit.jupiter.api.Assertions.*;
 import static primitives.Util.isZero;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
-import primitives.Point;
 import primitives.Vector;
 
 /**
- * @author user
+ * @author shira and avigail
  *
  */
 

@@ -13,7 +13,7 @@ import primitives.Ray;
 import primitives.Vector;
 
 /**
- * @author user
+ * @author shira and avigail
  *
  */
 public class TubeTests {

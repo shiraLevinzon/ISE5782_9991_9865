@@ -12,7 +12,7 @@ import renderer.Camera;
 /**
  * tests for Integration between rays from camera and geometry body
  * 
- * @author David and Matan
+ * @author shira and avigail
  */
 public class IntegrationTests {
 
@@ -22,7 +22,7 @@ public class IntegrationTests {
 	@Test
 	public void testIntegrationWithSphere() {
 		Sphere sphere = new Sphere(new Point(0, 0, -3), 1);
-		Camera camera = new Camera(Double3.ZERO, new Vector(0, 0, -1), new Vector(0, 1, 0));
+		Camera camera = new Camera(new Point(Double3.ZERO), new Vector(0, 0, -1), new Vector(0, 1, 0));
 		camera.setViewPlaneDistance(1).setViewPlaneSize(3, 3);
 
 		// TC01: Two intersection points
@@ -55,7 +55,7 @@ public class IntegrationTests {
 	@Test
 	public void testIntegrationWithPlane() {
 		Plane plane = new Plane(new Point(0, 0, -3), new Vector(0, 0, 1));
-		Camera camera = new Camera(Double3.ZERO, new Vector(0, 0, -1), new Vector(0, 1, 0));
+		Camera camera = new Camera(new Point(Double3.ZERO), new Vector(0, 0, -1), new Vector(0, 1, 0));
 		camera.setViewPlaneDistance(1).setViewPlaneSize(3, 3);
 
 		// TC01: 9 intersection points
@@ -77,7 +77,7 @@ public class IntegrationTests {
 	@Test
 	public void testIntegrationWithTriangle() {
 		Triangle tri = new Triangle(new Point(1, -1, -2), new Point(0, 1, -2), new Point(-1, -1, -2));
-		Camera camera = new Camera(Double3.ZERO, new Vector(0, 0, -1), new Vector(0, 1, 0));
+		Camera camera = new Camera(new Point(Double3.ZERO), new Vector(0, 0, -1), new Vector(0, 1, 0));
 		camera.setViewPlaneDistance(1).setViewPlaneSize(3, 3);
 
 		// TC01: 1 intersection point
