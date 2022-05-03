@@ -129,7 +129,12 @@ public class Camera {
 	{
 		if(this.p0==null || this.vTo==null|| this.vUp==null || this.rayTracerBase==null || this.vRight==null||this.imageWriter==null)
 			throw new MissingResourceException("one of the properties contains empty value", null, null);
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
+		for (int i = 0; i <imageWriter.getNy() ; i++) {
+			for (int j = 0; j < imageWriter.getNx(); j++) {
+				castRay(imageWriter.getNx(),imageWriter.getNy(),j,i);
+			}
+		}
 	}
 	public void printGrid(int interval, Color color) 
 	{
@@ -151,5 +156,10 @@ public class Camera {
 		if(this.imageWriter==null)
 			throw new MissingResourceException("image writer failed", null, null);
 		imageWriter.writeToImage();
+	}
+	private void castRay(int nX, int nY, int col, int row) {
+		Ray ray = constructRayThroughPixel(nX, nY, col, row);
+		Color color = rayTracerBase.traceRay(ray);
+		imageWriter.writePixel(col, row, color);
 	}
 }
