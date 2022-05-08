@@ -6,8 +6,8 @@ import java.util.List;
 import primitives.Point;
 import primitives.Ray;
 
-public class Geometries implements Intersectable {
-
+public class Geometries extends Intersectable {
+	
 	private List<Intersectable> bodies;
 
 	/**
@@ -118,7 +118,6 @@ public class Geometries implements Intersectable {
 			minZ = z;
 		minBoundary = new Point3D(minX, minY, minZ);
 	}*/
-
 	@Override
 	public List<Point> findIntsersections(Ray ray) {
 		List<Point> points = null;
@@ -133,6 +132,12 @@ public class Geometries implements Intersectable {
 			}
 		}
 		return points;
+	}
+
+	@Override
+	protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
 	

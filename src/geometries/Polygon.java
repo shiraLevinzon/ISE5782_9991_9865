@@ -1,6 +1,5 @@
 package geometries;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import primitives.*;
@@ -12,7 +11,7 @@ import static primitives.Util.*;
  * 
  * @author Dan
  */
-public class Polygon implements Geometry {
+public class Polygon extends Geometry {
 	/**
 	 * List of polygon's vertices
 	 */
@@ -130,6 +129,12 @@ public class Polygon implements Geometry {
 */
 	@Override
 	public List<Point> findIntsersections(Ray ray) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
 		// TODO Auto-generated method stub
 		return null;
 	}

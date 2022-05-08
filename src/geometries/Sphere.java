@@ -8,7 +8,7 @@ import primitives.Ray;
 import primitives.Util;
 import primitives.Vector;
 
-public class Sphere implements Geometry {
+public class Sphere extends Geometry {
 
 	private Point center;
 	private double radius;
@@ -55,7 +55,7 @@ public class Sphere implements Geometry {
 	}
 
 	@Override
-	public List<Point> findIntsersections(Ray ray)  {
+	public List<Point> findIntsersections(Ray ray/*,double max*/)  {
 		double tm;
 		double d;
 		var p0 = ray.getP0();
@@ -89,6 +89,12 @@ public class Sphere implements Geometry {
 			}
 			return myList;
 		}
+		return null;
+	}
+
+	@Override
+	protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 	

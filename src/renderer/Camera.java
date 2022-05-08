@@ -12,7 +12,7 @@ import primitives.Util;
 import primitives.Vector;
 
 /**
- * @author shira
+ * @author and avigail
  *
  */
 public class Camera {
@@ -24,7 +24,7 @@ public class Camera {
 	private double height;
 	private double distance;
 	private ImageWriter imageWriter;
-	private RayTracerBase rayTracerBase;
+	private RayTracerBase rayTracer;
 	public Point getP0() {
 		return p0;
 	}
@@ -33,7 +33,7 @@ public class Camera {
 		return this;
 	}
 	public Camera setRayTracerBase(RayTracerBase rayTracerBase) {
-		this.rayTracerBase = rayTracerBase;		
+		this.rayTracer = rayTracerBase;		
 		return this;
 	}
 	public Vector getvUp() {
@@ -127,7 +127,7 @@ public class Camera {
 	}
 	public void renderImage()
 	{
-		if(this.p0==null || this.vTo==null|| this.vUp==null || this.rayTracerBase==null || this.vRight==null||this.imageWriter==null)
+		if(this.p0==null || this.vTo==null|| this.vUp==null || this.rayTracer==null || this.vRight==null||this.imageWriter==null)
 			throw new MissingResourceException("one of the properties contains empty value", null, null);
 		//throw new UnsupportedOperationException();
 		for (int i = 0; i <imageWriter.getNy() ; i++) {
@@ -159,7 +159,7 @@ public class Camera {
 	}
 	private void castRay(int nX, int nY, int col, int row) {
 		Ray ray = constructRayThroughPixel(nX, nY, col, row);
-		Color color = rayTracerBase.traceRay(ray);
+		Color color = rayTracer.traceRay(ray);
 		imageWriter.writePixel(col, row, color);
 	}
 }

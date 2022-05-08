@@ -8,7 +8,7 @@ import primitives.Vector;
 import static primitives.Util.*;
 
 
-public class Plane implements Geometry{
+public class Plane extends Geometry{
 	
 	private Point q0;
 	private Vector normal;
@@ -62,7 +62,7 @@ public class Plane implements Geometry{
 	}
 	@Override
 	public Vector getNormal(Point p) {
-		return normal;
+		return getNormal();
 	}
 
 	@Override
@@ -91,6 +91,12 @@ public class Plane implements Geometry{
 		{
 			return null;
 		}
+	}
+
+	@Override
+	protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

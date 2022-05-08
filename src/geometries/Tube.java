@@ -7,7 +7,7 @@ import primitives.Ray;
 import primitives.Util;
 import primitives.Vector;
 
-public class Tube implements Geometry {
+public class Tube extends Geometry {
 
 	protected Ray axisRay;
 	protected double radius;
@@ -60,6 +60,12 @@ public class Tube implements Geometry {
 
 	@Override
 	public List<Point> findIntsersections(Ray ray){
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
 		// TODO Auto-generated method stub
 		return null;
 	}

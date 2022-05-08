@@ -1,14 +1,25 @@
 package geometries;
-import java.util.List;
-
 import primitives.*;
 /**
  *return the normal of all the geometric shapes realized from it 
  * @author user
  *
  */
-public interface Geometry extends Intersectable {
+public abstract class Geometry extends Intersectable {
 
-	Vector getNormal(Point p);
-
+	protected Color emission=Color.BLACK;
+	public abstract Vector getNormal(Point p);
+	/***
+	 * return emission
+	 */
+	public Color getEmission() {
+		return this.emission;
+	}
+	/***
+	 * 
+	 */
+	public Intersectable setEmission(Color other) {
+		 this.emission=other;
+		 return this;
+	}	
 }

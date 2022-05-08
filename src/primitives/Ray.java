@@ -35,7 +35,7 @@ public class Ray {
 		/***
 		 * 
 		 * @param list of points
-		 * @return the closest poont to the specific ray
+		 * @return the closest point to the specific ray
 		 */
 		public Point findClosestPoint (List<Point> points) {
 				return null;

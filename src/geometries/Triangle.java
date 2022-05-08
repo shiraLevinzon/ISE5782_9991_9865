@@ -2,13 +2,13 @@ package geometries;
 
 import java.util.List;
 
+import primitives.Color;
 import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
 import static primitives.Util.*;
 
-
-public class Triangle extends Polygon implements Geometry {
+public class Triangle extends Polygon {
 
 	/**
 	 * constructor that receive three points and activate the super constructor to create the triangle 
@@ -60,5 +60,10 @@ public class Triangle extends Polygon implements Geometry {
 	public String toString() {
 		return "Triangle [vertices=" + vertices.toString() + ", plane=" + plane.toString() + "]";
 	}
+
+
+
+
+	
 
 }
