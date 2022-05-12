@@ -14,7 +14,7 @@ public class Geometries extends Intersectable {
 	 * Default Ctor build empty list of bodies
 	 */
 	public Geometries() {
-		this.bodies = new LinkedList<Intersectable>();
+		this.bodies = new List<Geometries>();
 		/*minBoundary = new Point3D(Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY);
 		maxBoundary = new Point3D(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY);*/
 	}
@@ -42,7 +42,7 @@ public class Geometries extends Intersectable {
 	 * @param geometries list of bodies to add
 	 */
 	public void add(Intersectable... geometries) {
-		for (Intersectable intersectable : geometries) {
+		for (var intersectable : geometries) {
 			bodies.add(intersectable);
 			//lastAdded = intersectable;
 			//setMinBoundary();
@@ -130,8 +130,10 @@ public class Geometries extends Intersectable {
 					else
 						points.addAll(result);
 			}
+			return points;
 		}
-		return points;
+		else 
+			throw new IllegalArgumentException("is Empty!");
 	}
 
 	@Override

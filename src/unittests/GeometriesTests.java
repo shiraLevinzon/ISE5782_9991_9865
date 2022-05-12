@@ -5,7 +5,6 @@ package unittests;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
-import static org.junit.jupiter.api.Assertions.*;
 
 
 import org.junit.jupiter.api.Test;
@@ -19,7 +18,7 @@ import primitives.Vector;
 import primitives.Ray;
 
 /**
- * @author user
+ * @author avigail and shira
  *
  */
 class GeometriesTests {

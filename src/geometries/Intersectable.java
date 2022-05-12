@@ -20,7 +20,7 @@ public abstract class Intersectable {
 		    public  Geometry geometry;
 		    public  Point point;
 		   
-		    GeoPoint(Geometry geo,Point p){
+		    public GeoPoint(Geometry geo,Point p){
 		    	this.geometry=geo;
 		    	this.point=p;
 		    }
