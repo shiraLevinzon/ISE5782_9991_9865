@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.LinkedList;
 import geometries.*;
+import geometries.Intersectable.GeoPoint;
 import primitives.*;
 import org.junit.Test;
 
@@ -105,9 +106,9 @@ public class IntegrationTests {
 			for (int j = 0; j < nY; j++) {
 				rays.add(cam.constructRayThroughPixel(nX, nY, j, i));
 			}
-		var sumPoints = new LinkedList<Point>();
+		var sumPoints = new LinkedList<GeoPoint>();
 		for (var ray : rays) {
-			var result = body.findIntsersections(ray);
+			var result = body.findGeoIntersections(ray);
 			if (result != null)
 				sumPoints.addAll(result);
 		}

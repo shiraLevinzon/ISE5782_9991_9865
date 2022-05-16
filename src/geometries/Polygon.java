@@ -1,5 +1,6 @@
 package geometries;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import primitives.*;
@@ -90,8 +91,14 @@ public class Polygon extends Geometry {
 	}
 
 	/*@Override
-	public List<GeoPoint> findGeoIntersections(Ray ray, double max) {
-		var myList = plane.findGeoIntersections(ray, max);
+	public List<Point> findIntsersections(Ray ray) {
+		// TODO Auto-generated method stub
+		return null;
+	}*/
+
+	@Override
+	public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
+		var myList = plane.findGeoIntersections(ray);
 		if (myList == null)
 			return null;
 		var dir = ray.getDir();
@@ -125,17 +132,5 @@ public class Polygon extends Geometry {
 		}
 
 		return List.of(new GeoPoint(this, myList.get(0).point));
-	}
-*/
-	@Override
-	public List<Point> findIntsersections(Ray ray) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }

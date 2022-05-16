@@ -14,7 +14,7 @@ public class Geometries extends Intersectable {
 	 * Default Ctor build empty list of bodies
 	 */
 	public Geometries() {
-		this.bodies = new List<Geometries>();
+		this.bodies = new LinkedList<Intersectable>();
 		/*minBoundary = new Point3D(Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY);
 		maxBoundary = new Point3D(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY);*/
 	}
@@ -26,7 +26,7 @@ public class Geometries extends Intersectable {
 	 */
 	public Geometries(Intersectable... geometries) {
 		this(); // first we initialize the list
-	//	add(geometries);
+	    add(geometries);
 	}
 
 	/**
@@ -61,86 +61,43 @@ public class Geometries extends Intersectable {
 	 * @param dis            - distance for find intersection
 	 * @return the relevant point
 	 */
-	/*public List<GeoPoint> findRelevantIntersections(Ray ray, Box box, boolean shadowRaysCase, double dis) {
-		if (box == null)
-			return this.findGeoIntersections(ray, dis);
-		return box.findIntersectionsInTheBox(ray, shadowRaysCase, dis);
-	}*/
+	@Override
+    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray){
+        if (bodies.isEmpty()) // In case the collection is empty
+            return null;
+
+        List<GeoPoint> points = null, result;
+        for (Intersectable body: bodies) {
+            result = body.findGeoIntersectionsHelper(ray);
+            if(result != null){
+                if(points == null)
+                    points = new LinkedList<GeoPoint>(result);
+                else
+                    points.addAll(result);
+            }
+        }
+        return points;
+    }
 
 	/*@Override
-	public List<GeoPoint> findGeoIntersections(Ray ray, double max) {
-		List<GeoPoint> points = null;
-		if (bodies != null) {
-			for (var body : bodies) {
-				var result = body.findGeoIntersections(ray, max);
-				if (result != null)
-					if (points == null)
-						points = new LinkedList<GeoPoint>(result);
-					else
-						points.addAll(result);
-			}
-		}
-		return points;
-	}*/
-
-	/*@Override
-	public void setMaxBoundary() {
-		double x, y, z;
-		x = lastAdded.maxBoundary.getX();
-		y = lastAdded.maxBoundary.getY();
-		z = lastAdded.maxBoundary.getZ();
-		double maxX = maxBoundary.getX();
-		double maxY = maxBoundary.getY();
-		double maxZ = maxBoundary.getZ();
-		if (x > maxX)
-			maxX = x;
-		if (y > maxY)
-			maxY = y;
-		if (z > maxZ)
-			maxZ = z;
-		maxBoundary = new Point3D(maxX, maxY, maxZ);
-	}
-
-	@Override
-	public void setMinBoundary() {
-		double x, y, z;
-		x = lastAdded.minBoundary.getX();
-		y = lastAdded.minBoundary.getY();
-		z = lastAdded.minBoundary.getZ();
-		double minX = minBoundary.getX();
-		double minY = minBoundary.getY();
-		double minZ = minBoundary.getZ();
-		if (x < minX)
-			minX = x;
-		if (y < minY)
-			minY = y;
-		if (z < minZ)
-			minZ = z;
-		minBoundary = new Point3D(minX, minY, minZ);
-	}*/
-	@Override
-	public List<Point> findIntsersections(Ray ray) {
-		List<Point> points = null;
-		if (bodies != null) {
-			for (var body : bodies) {
-				var result = body.findIntsersections(ray);
-				if (result != null)
-					if (points == null)
-						points = new LinkedList<Point>(result);
-					else
-						points.addAll(result);
+	public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
+			List<GeoPoint> points = null;
+			if (bodies != null) {
+				for (var body : bodies) {
+					var result = body.findGeoIntersections(ray);
+					if (result != null)
+						if (points == null)
+							points = new LinkedList<GeoPoint>(result);
+						else
+							points.addAll(result);
+				
 			}
 			return points;
-		}
-		else 
-			throw new IllegalArgumentException("is Empty!");
-	}
-
-	@Override
-	protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+			}
+			else 
+				throw new IllegalArgumentException("is Empty!");
+		
+	}*/
 }
 	
 

@@ -29,22 +29,32 @@ public class Ray {
 				return p0;
 			}
 		}
+		
 		public Point getP0() {
 			return p0;
 		}
 		public Vector getDir() {
 			return dir;
 		}
+		
+		@Override
+		  public boolean equals(Object obj) {
+		      if (this == obj) return true;
+		      if (obj == null) return false;
+		      if (!(obj instanceof Ray)) return false;
+		      Ray other = (Ray)obj;
+		      return this.dir.equals(other.dir)&&this.p0.equals(other.p0);
+		   }
 		/***
 		 * 
 		 * @param list of points
 		 * @return the closest point to the specific ray
 		 */
-		public Point findClosestPoint(List<Point> intersections) {
-			var gp = findClosestGeoPoint(intersections == null ? null
-					: intersections.stream().map(p -> new GeoPoint(null, p)).collect(Collectors.toList()));
-			return gp == null ? null : gp.point;
+		public Point findClosestPoint(List<Point> points) {
+		    return points == null || points.isEmpty() ? null
+		           : findClosestGeoPoint(points.stream().map(p -> new GeoPoint(null, p)).toList()).point;
 		}
+
 
 		/**
 		 * search from list of points what is the closest point to the ray and return is
