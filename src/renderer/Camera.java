@@ -125,7 +125,7 @@ public class Camera {
 
 		return new Ray(vij,p0);
 	}
-	public void renderImage()
+	public Camera renderImage()
 	{
 		if(this.p0==null || this.vTo==null|| this.vUp==null || this.rayTracer==null || this.vRight==null||this.imageWriter==null)
 			throw new MissingResourceException("one of the properties contains empty value", null, null);
@@ -135,21 +135,19 @@ public class Camera {
 				castRay(imageWriter.getNx(),imageWriter.getNy(),j,i);
 			}
 		}
+		return this;
 	}
-	public void printGrid(int interval, Color color) 
-	{
-		if(this.imageWriter==null)
-			throw new MissingResourceException("image writer failed", null, null);
-		var writer = new ImageWriter("firstImage", 800, 500);
-		for (int i = 0; i < 500; i++) {
-			for (int j = 0; j < 800; j++) {
-				if (i % 50 == 0 || j % 50 == 0 || i == 799 || j == 499)
-					writer.writePixel(j, i, color);
-				else
-					writer.writePixel(j, i, new primitives.Color(0,0,255));
+	public void printGrid(int interval, Color color) {
+		if (imageWriter == null)
+			throw new MissingResourceException("there is no image ", "imageWriter", null);
+		double Nx = (double)imageWriter.getNx()/this.width;
+		double Ny = (double)imageWriter.getNy()/this.height;
+		for (int i = 0; i < Ny; i++) {
+			for (int j = 0; j < Nx; j++) {
+				if (i % interval == 0 || j % interval == 0)
+					imageWriter.writePixel(j, i, color);
 			}
 		}
-		writer.writeToImage();
 	}
 	public void writeToImage()
 	{

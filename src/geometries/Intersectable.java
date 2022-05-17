@@ -2,6 +2,7 @@ package geometries;
 
 import java.util.List;
 
+import primitives.Material;
 import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
@@ -50,6 +51,7 @@ public abstract class Intersectable {
 				return point.getX();
 			}
 		}
+
 	}
 
 

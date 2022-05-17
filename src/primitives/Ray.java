@@ -34,7 +34,7 @@ public class Ray {
 			return p0;
 		}
 		public Vector getDir() {
-			return dir;
+			return dir.normalize();
 		}
 		
 		@Override
