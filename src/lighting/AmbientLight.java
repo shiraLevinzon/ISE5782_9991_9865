@@ -13,9 +13,4 @@ public class AmbientLight extends Light  {
 	{
 		super(Color.BLACK);
 	}
-	public void ddh()
-	{
-		int a=5;
-	}
-	
 }
