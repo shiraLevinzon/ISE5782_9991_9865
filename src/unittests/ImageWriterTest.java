@@ -10,7 +10,7 @@ import java.awt.Color;
 import renderer.ImageWriter;
 
 /**
- * @author user
+ * @author avigail and shira
  *
  */
 class ImageWriterTest {

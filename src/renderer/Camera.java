@@ -125,11 +125,7 @@ public class Camera {
 
 		return new Ray(vij,p0);
 	}
-	/**
-	 * The function goes through all the pixels of the ViewPlane, and set color on
-	 * every pixel.
-	 */
-	public Camera renderImage()
+	public void renderImage()
 	{
 		if(this.p0==null || this.vTo==null|| this.vUp==null || this.rayTracer==null || this.vRight==null||this.imageWriter==null)
 			throw new MissingResourceException("one of the properties contains empty value", null, null);
@@ -139,36 +135,28 @@ public class Camera {
 				castRay(imageWriter.getNx(),imageWriter.getNy(),j,i);
 			}
 		}
-		return this;
 	}
-	/**
-	 * print grid (size of interval value) on image by color.
-	 * 
-	 * @param interval - The amount of pixels put in the grid
-	 * @param color    - color of grid
-	 */
-	public void printGrid(int interval, Color color) {
-		if (imageWriter == null)
-			throw new MissingResourceException("there is no image ", "imageWriter", null);
-		int Nx = imageWriter.getNx();
-		int Ny = imageWriter.getNy();
-		for (int i = 0; i < Ny; i++) {
-			for (int j = 0; j < Nx; j++) {
-				if (i % interval == 0 || j % interval == 0)
-					imageWriter.writePixel(j, i, color);
+	public void printGrid(int interval, Color color) 
+	{
+		if(this.imageWriter==null)
+			throw new MissingResourceException("image writer failed", null, null);
+		var writer = new ImageWriter("firstImage", 800, 500);
+		for (int i = 0; i < 500; i++) {
+			for (int j = 0; j < 800; j++) {
+				if (i % 50 == 0 || j % 50 == 0 || i == 799 || j == 499)
+					writer.writePixel(j, i, color);
+				else
+					writer.writePixel(j, i, new primitives.Color(0,0,255));
 			}
 		}
+		writer.writeToImage();
 	}
-	/**
-	 * Write scene to image
-	 */
 	public void writeToImage()
 	{
 		if(this.imageWriter==null)
 			throw new MissingResourceException("image writer failed", null, null);
 		imageWriter.writeToImage();
 	}
-	
 	private void castRay(int nX, int nY, int col, int row) {
 		Ray ray = constructRayThroughPixel(nX, nY, col, row);
 		Color color = rayTracer.traceRay(ray);
