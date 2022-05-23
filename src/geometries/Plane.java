@@ -76,8 +76,25 @@ public class Plane extends Geometry{
 	      Plane other = (Plane)obj;
 	      return this.normal.equals(other.normal)&&this.q0.equals(other.q0);
 	   }
-
 	@Override
+	public List<GeoPoint> findGeoIntersectionsHelper(Ray ray,double max) {
+		double nv = getNormal().dotProduct(ray.getDir());
+		if (isZero(nv))
+			return null;
+		try {
+			double numer = getNormal().dotProduct(getQ0().subtract(ray.getP0()));
+			double t = alignZero(numer / nv);
+			if (t > 0 && alignZero(t - max) <= 0) {
+				var p1 = ray.getPoint(t);
+				return List.of(new GeoPoint(this, p1));
+			}
+		} catch (Exception e) {
+			return null;
+		}
+		return null;
+	}
+
+	/*@Override
     public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
 
         if (ray.getP0().equals(q0) || isZero(this.normal.dotProduct(ray.getDir()))
@@ -93,7 +110,7 @@ public class Plane extends Geometry{
         LinkedList<GeoPoint> result = new LinkedList<GeoPoint>();
         result.add(p);
         return result;
-    }
+    }*/
 
 	
 }

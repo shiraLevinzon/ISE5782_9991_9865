@@ -62,42 +62,22 @@ public class Geometries extends Intersectable {
 	 * @return the relevant point
 	 */
 	@Override
-    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray){
-        if (bodies.isEmpty()) // In case the collection is empty
-            return null;
-
-        List<GeoPoint> points = null, result;
-        for (Intersectable body: bodies) {
-            result = body.findGeoIntersectionsHelper(ray);
-            if(result != null){
-                if(points == null)
-                    points = new LinkedList<GeoPoint>(result);
-                else
-                    points.addAll(result);
-            }
-        }
-        return points;
-    }
-
-	/*@Override
-	public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
-			List<GeoPoint> points = null;
-			if (bodies != null) {
-				for (var body : bodies) {
-					var result = body.findGeoIntersections(ray);
-					if (result != null)
-						if (points == null)
-							points = new LinkedList<GeoPoint>(result);
-						else
-							points.addAll(result);
-				
+	public List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double max) {
+		List<GeoPoint> points = null;
+		if (bodies != null) {
+			for (var body : bodies) {
+				var result = body.findGeoIntersections(ray, max);
+				if (result != null)
+					if (points == null)
+						points = new LinkedList<GeoPoint>(result);
+					else
+						points.addAll(result);
 			}
-			return points;
-			}
-			else 
-				throw new IllegalArgumentException("is Empty!");
-		
-	}*/
+		}
+		return points;
+	}
+
+
 }
 	
 

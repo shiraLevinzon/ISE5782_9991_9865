@@ -12,7 +12,7 @@ import primitives.Util;
 import primitives.Vector;
 
 /**
- * @author and avigail
+ * @author shira and avigail
  *
  */
 public class Camera {
@@ -125,6 +125,10 @@ public class Camera {
 
 		return new Ray(vij,p0);
 	}
+	/**
+	 * The function goes through all the pixels of the ViewPlane, and set color on
+	 * every pixel.
+	 */
 	public Camera renderImage()
 	{
 		if(this.p0==null || this.vTo==null|| this.vUp==null || this.rayTracer==null || this.vRight==null||this.imageWriter==null)
@@ -137,11 +141,17 @@ public class Camera {
 		}
 		return this;
 	}
+	/**
+	 * print grid (size of interval value) on image by color.
+	 * 
+	 * @param interval - The amount of pixels put in the grid
+	 * @param color    - color of grid
+	 */
 	public void printGrid(int interval, Color color) {
 		if (imageWriter == null)
 			throw new MissingResourceException("there is no image ", "imageWriter", null);
-		double Nx = (double)imageWriter.getNx()/this.width;
-		double Ny = (double)imageWriter.getNy()/this.height;
+		int Nx = imageWriter.getNx();
+		int Ny = imageWriter.getNy();
 		for (int i = 0; i < Ny; i++) {
 			for (int j = 0; j < Nx; j++) {
 				if (i % interval == 0 || j % interval == 0)
@@ -149,12 +159,16 @@ public class Camera {
 			}
 		}
 	}
+	/**
+	 * Write scene to image
+	 */
 	public void writeToImage()
 	{
 		if(this.imageWriter==null)
 			throw new MissingResourceException("image writer failed", null, null);
 		imageWriter.writeToImage();
 	}
+	
 	private void castRay(int nX, int nY, int col, int row) {
 		Ray ray = constructRayThroughPixel(nX, nY, col, row);
 		Color color = rayTracer.traceRay(ray);

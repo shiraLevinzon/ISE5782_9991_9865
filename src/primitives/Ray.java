@@ -13,6 +13,10 @@ import geometries.Intersectable.GeoPoint;
 public class Ray {
 		Vector dir;
 		Point p0;
+		
+		
+		private static final double DELTA = 0.1;
+
 		/**
 		 * constructor that receives a vector and a point and creates a ray
 		 * @param dir
@@ -22,6 +26,23 @@ public class Ray {
 			this.dir =dir.normalize();
 			this.p0 = p0;
 		}
+		/**
+		 * this constructor is special its create ray but it also move the head point in
+		 * the normal direction in DELTA or -DELTA (depend on the dotProduct)
+		 * 
+		 * @param p0 - a point of ray
+		 * @param dir - a direction of ray
+		 * @param normal -normal to the head point
+		 */
+		public Ray(Point p0, Vector dir, Vector normal) {
+			this(dir,p0);
+			double nv = normal.dotProduct(this.dir);
+			if (!Util.isZero(nv)) {
+				Vector delta = normal.scale(nv > 0 ? DELTA : -DELTA);
+				this.p0 = p0.add(delta);
+			}
+		}
+		
 		public Point getPoint(double t) {
 			try {
 				return p0.add(dir.scale(t));

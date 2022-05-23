@@ -18,10 +18,15 @@ public abstract class Intersectable {
 	    return geoList == null ? null
 	                           : geoList.stream().map(gp -> gp.point).toList();
 	}
+	public final List<GeoPoint> findGeoIntersections(Ray ray) {
+    	return findGeoIntersections(ray, Double.POSITIVE_INFINITY);
+    }
+    public final List<GeoPoint> findGeoIntersections(Ray ray, double maxDistance) {
+    	return findGeoIntersectionsHelper(ray, maxDistance);
+    }
+    protected abstract List<GeoPoint>
+                      findGeoIntersectionsHelper(Ray ray, double maxDistance);
 
-	public List<GeoPoint> findGeoIntersections(Ray ray){
-		return findGeoIntersectionsHelper(ray);	}
-	protected abstract List<GeoPoint> findGeoIntersectionsHelper(Ray ray);
 	
 	public static class GeoPoint {
 		    public  Geometry geometry;

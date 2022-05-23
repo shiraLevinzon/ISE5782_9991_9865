@@ -90,15 +90,11 @@ public class Polygon extends Geometry {
 		return plane.getNormal();
 	}
 
-	/*@Override
-	public List<Point> findIntsersections(Ray ray) {
-		// TODO Auto-generated method stub
-		return null;
-	}*/
+	
 
 	@Override
-	public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
-		var myList = plane.findGeoIntersections(ray);
+	public List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double max) {
+		var myList = plane.findGeoIntersections(ray, max);
 		if (myList == null)
 			return null;
 		var dir = ray.getDir();

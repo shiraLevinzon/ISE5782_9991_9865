@@ -8,8 +8,7 @@ public class DirectionalLight  extends Light implements LightSource  {
 	private Vector direction;
 	public DirectionalLight(Color Ia,Vector d) {
 		super(Ia);
-		this.direction=d;
-		// TODO Auto-generated constructor stub
+		this.direction=d.normalize();
 	}
 	@Override
 	public Color getIntensity(Point p) {
@@ -21,7 +20,10 @@ public class DirectionalLight  extends Light implements LightSource  {
 		return direction.normalize();
 	}
 
-	
+	@Override
+	public double getDistance(Point point) {
+		return Double.POSITIVE_INFINITY;
+	}
 
 
 }

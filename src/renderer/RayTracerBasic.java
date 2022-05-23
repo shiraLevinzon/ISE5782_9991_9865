@@ -13,13 +13,20 @@ import scene.Scene;
 
 public class RayTracerBasic extends RayTracerBase {
 
+	private static final double DELTA = 0.1;
 	
 	public RayTracerBasic(Scene Sc) {
 		super(Sc);
 	}
 	
 	
-	
+	private boolean unshaded(LightSource light,GeoPoint gp, Vector l, Vector n)
+	{
+		Vector lightDirection = l.scale(-1); // from point to light source
+		Ray lightRay = new Ray(gp.point, lightDirection, n);
+		var intersections = scene.geometries.findGeoIntersections(lightRay, light.getDistance(gp.point));
+		return intersections == null;
+	}
 	@Override
 	public Color traceRay(Ray ray) {
 		var intersections = scene.geometries.findGeoIntersections(ray);
@@ -61,9 +68,12 @@ public class RayTracerBasic extends RayTracerBase {
 			Vector l = lightSource.getL(intersection.point).normalize();
 			double nl = Util.alignZero(n.dotProduct(l));
 			if (nl * nv > 0) { // sign(nl) == sign(nv)
+				if (unshaded(lightSource,intersection , l, n)) 
+				{
 				Color lightIntensity = lightSource.getIntensity(intersection.point);
 				color = color.add(calcDiffusive(kd, l, n, lightIntensity),
 						calcSpecular(ks, l, n, v, nShininess, lightIntensity));
+				}
 			}
 		}
 		return color;
