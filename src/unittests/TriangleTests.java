@@ -1,5 +1,7 @@
 package unittests;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
@@ -55,5 +57,19 @@ class TriangleTests {
         r = new Ray(new Vector(0, 0, -1),new Point(-1, 4, -2));
         assertEquals( null, tr.findGeoIntersections(r),"ray goes through the continuation of side 1");	
         }
+	
+	@Test
+	void testfindGeoIntersectionWithMax() {
+		
+		// TC01: 0 intersection point
+		Triangle triangle=new Triangle(new Point(5,0,0),new Point(5,5,0),new Point(5,0,5));
+		var result=triangle.findGeoIntersections(new Ray(new Vector(1,0,0),new Point(0,0,0)),6);
+		assertEquals(1,result.size());
+		
+		// TC02: 1 intersection point
+		 result=triangle.findGeoIntersections(new Ray(new Vector(1,0,0),new Point(0,0,0)),3);
+		 assertNull(null,result);
+	}
+
 
 }

@@ -6,6 +6,7 @@ import geometries.Intersectable.GeoPoint;
 import lighting.LightSource;
 import primitives.Color;
 import primitives.Double3;
+import primitives.Point;
 import primitives.Ray;
 import primitives.Util;
 import primitives.Vector;
@@ -24,8 +25,15 @@ public class RayTracerBasic extends RayTracerBase {
 	{
 		Vector lightDirection = l.scale(-1); // from point to light source
 		Ray lightRay = new Ray(gp.point, lightDirection, n);
-		var intersections = scene.geometries.findGeoIntersections(lightRay, light.getDistance(gp.point));
+		var intersections = scene.geometries.findGeoIntersections(lightRay,light.getDistance(gp.point));
 		return intersections == null;
+		/*Vector epsVector = n.scale(n.dotProduct(lightDirection) > 0 ? DELTA : -DELTA);
+		Point po = gp.point.add(epsVector);
+		Ray lightRay = new Ray(po,lightDirection,n);
+		List<GeoPoint> intersections = scene.geometries.findGeoIntersections(lightRay);
+		if (intersections == null) 
+			return true;
+		return false;*/
 	}
 	@Override
 	public Color traceRay(Ray ray) {

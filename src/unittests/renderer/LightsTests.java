@@ -79,7 +79,6 @@ public class LightsTests {
 	public void sphereSpot() {
 		scene1.geometries.add(sphere);
 		scene1.lights.add(new SpotLight(spCL, spPL, new Vector(1, 1, -0.5),1,0,0).setkL(0.001).setkQ(0.0001));
-
 		ImageWriter imageWriter = new ImageWriter("lightSphereSpot", 500, 500);
 		camera1.setImageWriter(imageWriter) //
 				.setRayTracerBase(new RayTracerBasic(scene1)) //

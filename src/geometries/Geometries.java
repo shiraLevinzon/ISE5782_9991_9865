@@ -62,11 +62,11 @@ public class Geometries extends Intersectable {
 	 * @return the relevant point
 	 */
 	@Override
-	public List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double max) {
+	public List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistance) {
 		List<GeoPoint> points = null;
 		if (bodies != null) {
 			for (var body : bodies) {
-				var result = body.findGeoIntersections(ray, max);
+				var result = body.findGeoIntersections(ray, maxDistance);
 				if (result != null)
 					if (points == null)
 						points = new LinkedList<GeoPoint>(result);
@@ -76,8 +76,6 @@ public class Geometries extends Intersectable {
 		}
 		return points;
 	}
-
-
 }
 	
 

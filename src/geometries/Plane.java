@@ -1,6 +1,5 @@
 package geometries;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import primitives.Point;
@@ -77,14 +76,14 @@ public class Plane extends Geometry{
 	      return this.normal.equals(other.normal)&&this.q0.equals(other.q0);
 	   }
 	@Override
-	public List<GeoPoint> findGeoIntersectionsHelper(Ray ray,double max) {
+	public List<GeoPoint> findGeoIntersectionsHelper(Ray ray,double maxDistance) {
 		double nv = getNormal().dotProduct(ray.getDir());
 		if (isZero(nv))
 			return null;
 		try {
 			double numer = getNormal().dotProduct(getQ0().subtract(ray.getP0()));
 			double t = alignZero(numer / nv);
-			if (t > 0 && alignZero(t - max) <= 0) {
+			if (t > 0 && alignZero(t - maxDistance) <= 0) {
 				var p1 = ray.getPoint(t);
 				return List.of(new GeoPoint(this, p1));
 			}
