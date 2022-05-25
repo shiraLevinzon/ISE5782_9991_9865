@@ -24,8 +24,7 @@ public abstract class Intersectable {
     public final List<GeoPoint> findGeoIntersections(Ray ray, double maxDistance) {
     	return findGeoIntersectionsHelper(ray, maxDistance);
     }
-    protected abstract List<GeoPoint>
-                      findGeoIntersectionsHelper(Ray ray, double maxDistance);
+    protected abstract List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistance);
 
 	
 	public static class GeoPoint {

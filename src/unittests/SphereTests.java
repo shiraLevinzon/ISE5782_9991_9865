@@ -134,5 +134,23 @@ class SphereTests {
 			assertNull("Ray's line is outside, ray is orthogonal to ray start to sphere's center line",
 					sphere.findGeoIntersections(new Ray( new Vector(0, 1, 0),new Point(-0.5, 0, 0))));
 		}
+		
+		@Test
+		void testfindGeoIntersectionWithMax() {
+			
+			// TC01: 0 intersection point
+			Sphere sphere=new Sphere(new Point(4,0,0),1);
+			var result=sphere.findGeoIntersections(new Ray(new Vector(1,0,0),new Point(0,0,0)),2);
+			assertNull(null,result);
+			
+			//TC02: 1 intersections point
+			var l=sphere.findGeoIntersections(new Ray(new Vector(1,0,0),new Point(0,0,0)),4);
+			assertEquals(1,l.size());
+			
+			// TC03: 2 intersection point
+			result=sphere.findGeoIntersections(new Ray(new Vector(1,0,0),new Point(0,0,0)),6);
+			assertEquals(2,result.size());
+		}
 	}
+
 
