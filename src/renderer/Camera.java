@@ -125,7 +125,7 @@ public class Camera {
 
 		return new Ray(vij,p0);
 	}
-	public void renderImage()
+	public Camera renderImage()
 	{
 		if(this.p0==null || this.vTo==null|| this.vUp==null || this.rayTracer==null || this.vRight==null||this.imageWriter==null)
 			throw new MissingResourceException("one of the properties contains empty value", null, null);
@@ -135,6 +135,7 @@ public class Camera {
 				castRay(imageWriter.getNx(),imageWriter.getNy(),j,i);
 			}
 		}
+		return this;
 	}
 	public void printGrid(int interval, Color color) 
 	{
