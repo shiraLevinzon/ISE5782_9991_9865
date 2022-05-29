@@ -47,7 +47,7 @@ class SphereTests {
 			assertNull("Ray's line out of sphere",
 					sphere.findGeoIntersections(new Ray(new Vector(-1, 0, 0), new Point(1, 1, 0))));
 
-			// TC02: Ray starts before and crosses the sphere (2 points)
+			/// TC02: Ray starts before and crosses the sphere (2 points)
 			Point p1 = new Point(0.0651530771650466, 0.355051025721682, 0);
 			Point p2 = new Point(1.53484692283495, 0.844948974278318, 0);
 			
@@ -59,7 +59,7 @@ class SphereTests {
 			assertEquals("Ray crosses sphere", List.of(p1, p2), result);
 
 			// TC03: Ray starts inside the sphere (1 point)
-			 result = sphere.findGeoIntersections(new Ray(new Vector(1, 0.5, 0), new Point(1, 0, 0)));
+			result = sphere.findGeoIntersections(new Ray(new Vector(1, 0.5, 0), new Point(1, 0, 0)));
 			assertEquals("Wrong number of points", 1, result.size());
 			assertEquals("Ray starts inside the sphere", new Point(1.8660254037844386, 0.5, 0), result.get(0));
 
@@ -83,8 +83,8 @@ class SphereTests {
 
 			// **** Group: Ray's line goes through the center
 			// TC13: Ray starts before the sphere (2 points)
-			p1 = new Point(0, 0, 0);
-			p2 = new Point(2, 0, 0);
+			 p1 = new Point(0, 0, 0);
+			 p2 = new Point(2, 0, 0);
 			result = sphere.findGeoIntersections(new Ray(new Vector(1, 0, 0),new Point(-1, 0, 0)));
 
 			assertEquals("Wrong number of points", 2, result.size());
