@@ -45,6 +45,22 @@ public class Material {
 	/**
 	 * @param kS the kS to set
 	 */
+	public Material setkR(double kR) {
+		this.kR = new Double3(kR);
+		return this;
+
+	}
+	/**
+	 * @param kD the kD to set
+	 */
+	public Material setkT(double kT) {
+		this.kT = new Double3(kT);
+		return this;
+
+	}
+	/**
+	 * @param kS the kS to set
+	 */
 	public Material setkS(double kS) {
 		this.kS = new Double3(kS);
 		return this;
