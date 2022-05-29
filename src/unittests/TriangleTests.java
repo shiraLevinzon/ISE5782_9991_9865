@@ -37,24 +37,24 @@ class TriangleTests {
         {}
         // TC02: the ray is outside the triangle against edge
         r = new Ray(new Vector(1, 1, -4),new Point(4, 4, -2));
-        assertEquals( null, tr.findGeoIntersections(r),"the ray is outside the triangle against edge");
+        assertNull(tr.findGeoIntersections(r),"the ray is outside the triangle against edge");
         // TC03: the ray is outside the triangle against vertex
         r = new Ray(new Vector(-1, -1, -1),new Point(-4, -1, -2));
-        assertEquals(null, tr.findGeoIntersections(r),"the ray is outside the triangle against vertex");
+        assertNull(tr.findGeoIntersections(r),"the ray is outside the triangle against vertex");
 
 
 		// =============== Boundary Values Tests ==================
         // TC04: ray through edge
         r = new Ray(new Vector(0, 0, -1),new Point(-2, 1, -1));
-        assertEquals( null, tr.findGeoIntersections(r),"ray through edge");
+        assertNull(tr.findGeoIntersections(r),"ray through edge");
 
         // TC05: ray through vertex 
         r = new Ray( new Vector(0, 0, -1),new Point(0, 3, -2));
-        assertEquals( null, tr.findGeoIntersections(r),"ray through vertex");
+        assertNull(tr.findGeoIntersections(r),"ray through vertex");
       
         // TC06: ray goes through the continuation of side 1
         r = new Ray(new Vector(0, 0, -1),new Point(-1, 4, -2));
-        assertEquals( null, tr.findGeoIntersections(r),"ray goes through the continuation of side 1");	
+        assertNull(tr.findGeoIntersections(r),"ray goes through the continuation of side 1");	
         }
 	
 	@Test

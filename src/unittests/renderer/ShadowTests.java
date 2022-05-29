@@ -103,7 +103,9 @@ public class ShadowTests {
 				new Sphere(new Point(0, 0, -11), 30d) 
 						.setEmission(new Color(java.awt.Color.BLUE)) 
 						.setMaterial(new Material().setkD(0.5).setkS(0.5).setnShininess(30)) 
-		);
+		
+				);
+		
 		scene.lights.add( 
 				new SpotLight(new Color(700, 400, 400), new Point(40, 40, 115), new Vector(-1, -1, -4),1,0,0).setkL(4E-4).setkQ(2E-5));
 
@@ -111,6 +113,20 @@ public class ShadowTests {
 		camera.renderImage();
 		camera.writeToImage();
 	}
+		
+		
+		@Test
+		public void tastcase() {
+			scene.setAmbientLight(new AmbientLight(new Color(java.awt.Color.WHITE),new Double3(0.15)));
+			scene.geometries.add(new Sphere(new Point(15, 15, 30), 25) 
+					.setEmission(new Color(java.awt.Color.red)) 
+					.setMaterial(new Material().setkD(2).setkS(2).setnShininess(45)));
+			scene.lights.add( 
+					new DirectionalLight(new Color(800, 500, 0), new Vector(1, 1, 1)));
 
-
+			camera.setImageWriter(new ImageWriter("testCase1", 600, 600));
+			camera.setViewPlaneDistance(1000);
+			camera.renderImage();
+			camera.writeToImage();
+		}
 }

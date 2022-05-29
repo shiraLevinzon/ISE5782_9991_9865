@@ -68,7 +68,7 @@ public class Camera {
 		this.p0 = p0;
 		this.vTo = vTo.normalize();
 		this.vUp = vUp.normalize();
-		this.vRight = vTo.crossProduct(vUp).normalize();
+		this.vRight = vTo.crossProduct(vUp).normalize();//וקטור המאונך לשניהם
 	}
 	/**
 	 * setter for size of view plane
@@ -104,10 +104,10 @@ public class Camera {
 	 * @param i  - the index in the row
 	 * @return ray that passes in given pixel in the grid
 	 */
-	public Ray constructRayThroughPixel(int nX, int nY, int j, int i) {
+	public Ray constructRayThroughPixel(int nX/*4*/, int nY/*4*/, int j/*1*/, int i/**/) {
 
 		// image center
-		Point pc = p0.add(vTo.scale(distance));
+		Point pc = p0.add(vTo.scale(distance));//10
 		// ratio
 		var ry = height / nY;
 		var rx = width / nX;
