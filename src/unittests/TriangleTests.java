@@ -37,7 +37,8 @@ class TriangleTests {
         {}
         // TC02: the ray is outside the triangle against edge
         r = new Ray(new Vector(1, 1, -4),new Point(4, 4, -2));
-        assertNull(tr.findGeoIntersections(r),"the ray is outside the triangle against edge");
+        
+        assertNull( tr.findGeoIntersections(r),"the ray is outside the triangle against edge");
         // TC03: the ray is outside the triangle against vertex
         r = new Ray(new Vector(-1, -1, -1),new Point(-4, -1, -2));
         assertNull(tr.findGeoIntersections(r),"the ray is outside the triangle against vertex");

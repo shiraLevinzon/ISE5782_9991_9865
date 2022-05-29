@@ -1,7 +1,5 @@
 package primitives;
 
-import lighting.SpotLight;
-
 /**
  * Wrapper class for java.jwt.Color The constructors operate with any
  * non-negative RGB values. The colors are maintained without upper limit of
@@ -143,5 +141,9 @@ public class Color {
 			throw new IllegalArgumentException("Can't scale a color by a by a number lower than 1");
 		return new Color(rgb.d1 / k.d1, rgb.d2 / k.d2, rgb.d3 / k.d3);
 	}
-	
+
+	@Override
+	public String toString() {
+		return "rgb:" + rgb;
+	}
 }
