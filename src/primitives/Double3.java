@@ -64,7 +64,8 @@ public class Double3 {
 	public int hashCode() {
 		return (int) Math.round(d1 + d2 + d3);
 	}
-
+public double getD1()
+{return this.d1;}
 	@Override
 	public String toString() {
 		return "(" + d1 + "," + d2 + "," + d3 + ")";

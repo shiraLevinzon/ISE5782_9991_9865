@@ -24,6 +24,10 @@ public class DirectionalLight  extends Light implements LightSource  {
 	public double getDistance(Point point) {
 		return Double.POSITIVE_INFINITY;
 	}
+	@Override
+	public double getGridSize() {
+		return 0;
+	}
 
 
 }

@@ -3,9 +3,12 @@
  */
 package renderer;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.MissingResourceException;
 
 import primitives.Color;
+import primitives.Double3;
 import primitives.Point;
 import primitives.Ray;
 import primitives.Util;
@@ -94,6 +97,8 @@ public class Camera {
 		return this;
 	}
 
+	
+	
 	/**
 	 * The function builds a ray through a given pixel (j,i) within the grid of nX
 	 * and nY
@@ -125,6 +130,12 @@ public class Camera {
 
 		return new Ray(vij,p0);
 	}
+	
+	
+	
+
+
+    
 	public Camera renderImage()
 	{
 		if(this.p0==null || this.vTo==null|| this.vUp==null || this.rayTracer==null || this.vRight==null||this.imageWriter==null)

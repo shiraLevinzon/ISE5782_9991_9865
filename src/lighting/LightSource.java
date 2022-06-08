@@ -30,4 +30,10 @@ public interface LightSource {
 
 
 	     public double getDistance(Point point);
+	     
+	     /**
+	 	 * Gets the light-source's grid's size ( - both width and height, to represent volume)
+	 	 * @return the light-source's grid's size ( - both width and height)
+	 	 */
+	 	public double getGridSize();
 }
