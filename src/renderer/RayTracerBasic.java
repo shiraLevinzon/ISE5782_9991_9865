@@ -122,7 +122,7 @@ public class RayTracerBasic extends RayTracerBase {
 			double nl = alignZero(n.dotProduct(l));
 			if (nl * nv > 0) { // sign(nl) == sign(nv)
 				// PICTURE IMPROVEMENT SOFT SHADOWS - use beam of rays in the function transparency:
-				double ktr = transparency(lightSource, l, n, intersection, numOfRays/*,adaptiveSupersampling*/);
+				double ktr = transparency(lightSource, l, n, intersection, numOfRays,adaptiveSupersampling);
 				//if (unshaded(lightSource,l,n,intersection)) {
 				if (ktr * k > MIN_CALC_COLOR_K) {
 					Color lightIntensity = lightSource.getIntensity(intersection.point).scale(ktr);
@@ -333,7 +333,7 @@ public class RayTracerBasic extends RayTracerBase {
 	 * @param adaptiveSupersampling whether the adaptive-supersampling picture improvement is required
 	 * @return The discount-factor of the shading on this intersection-geoPoint
 	 */
-/*	private double transparency(LightSource light, Vector l, Vector n, GeoPoint geoPoint, int numOfRays, boolean adaptiveSupersampling) {
+	private double transparency(LightSource light, Vector l, Vector n, GeoPoint geoPoint, int numOfRays, boolean adaptiveSupersampling) {
 		// if adaptive-supersampling isn't required or there is only 1 ray required or the grid's size is 0 -
 		// then use transparency from mini project 1 (without adaptive-supersampling):
 		if(!adaptiveSupersampling || numOfRays==1 || isZero(light.getGridSize()))
@@ -362,7 +362,7 @@ public class RayTracerBasic extends RayTracerBase {
 	 * @param numOfRaysLeftInRowCol how many rays should yet be traced until we get a grid with x cubes when x=the original number of rays wanted in the beam
 	 * @return The discount-factor of the shading on this intersection-geoPoint
 	 */
-	/*private double adaptiveSupersamplingForTransparency(GeoPoint geoPoint, Vector n, Point gridCenter, Vector gridVright, Vector gridVup, double gridSize, double numOfRaysLeftInRowCol) {
+	  private double adaptiveSupersamplingForTransparency(GeoPoint geoPoint, Vector n, Point gridCenter, Vector gridVright, Vector gridVup, double gridSize, double numOfRaysLeftInRowCol) {
 
 		double halfGridSize=alignZero(gridSize/2);
 		// 4 corners of the grid:
@@ -411,7 +411,7 @@ public class RayTracerBasic extends RayTracerBase {
 		
 		// return the average of the 4 ktrs got from the recursion steps:
 		return alignZero((ktr1+ktr2+ktr3+ktr4)/4);
-	}*/
+	}
 	
 	
 	

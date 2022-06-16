@@ -101,7 +101,7 @@ public class MiniProject1 {
 
 			camera.setImageWriter(imageWriter) //
 					.setRayTracerBase(new RayTracerBasic(scene))//
-					.renderImage()//
+					.renderImage(300)//
 			        .writeToImage();		
 		
 		}
@@ -141,7 +141,7 @@ public class MiniProject1 {
 
 			camera.setImageWriter(imageWriter) //
 					.setRayTracerBase(new RayTracerBasic(scene))//
-					.renderImage()//
+					.renderImage(100)//
 			        .writeToImage();		
 		
 		}
