@@ -39,12 +39,6 @@ public class SpotLight extends PointLight {
         return super.getIntensity(p).scale(cos);
     }
 
-	/*public Color getIntensity(Point p) {
-		var result=direction.dotProduct(getL(p));
-		if(result<=0)
-			return Color.BLACK;
-		return super.getIntensity(p).scale(result);
-	}*/
 
 	@Override
 	public Vector getL(Point p) {

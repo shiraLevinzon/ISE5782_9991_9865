@@ -326,22 +326,6 @@ public class Camera {
 		return this;
 	}
 
-	
-
-
-    
-	/*public Camera renderImage()
-	{
-		if(this.p0==null || this.vTo==null|| this.vUp==null || this.rayTracer==null || this.vRight==null||this.imageWriter==null)
-			throw new MissingResourceException("one of the properties contains empty value", null, null);
-		//throw new UnsupportedOperationException();
-		for (int i = 0; i <imageWriter.getNy() ; i++) {
-			for (int j = 0; j < imageWriter.getNx(); j++) {
-				castRay(imageWriter.getNx(),imageWriter.getNy(),j,i);
-			}
-		}
-		return this;
-	}*/
 	public void printGrid(int interval, Color color) 
 	{
 		if(this.imageWriter==null)
@@ -379,11 +363,7 @@ public class Camera {
 		Color color = rayTracer.traceRay(ray, numOfRays, adaptiveSupersampling);
 		imageWriter.writePixel(col, row, color);
 	}
-	/*private void castRay(int nX, int nY, int col, int row) {
-		Ray ray = constructRayThroughPixel(nX, nY, col, row);
-		Color color = rayTracer.traceRay(ray);
-		imageWriter.writePixel(col, row, color);
-	}*/
+	
 	/**
 	 * This function renders image's pixel color map from the scene included with the Renderer object - with multi-threading
 	 * @param numOfRays the number of rays wanted in the beam when using a beam of rays for picture improvement

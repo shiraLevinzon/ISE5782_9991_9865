@@ -26,10 +26,10 @@ public class MiniProject1 {
 		
 		
 		
-		/**
+		/*/**
 		 * Produce the picture without soft-shadows 
 		 */
-		@Test
+		/*@Test
 		public void MiniProject1NoSoftShadowsTest() {
 			
 			scene.geometries.add( //
@@ -63,7 +63,7 @@ public class MiniProject1 {
 					.setRayTracerBase(new RayTracerBasic(scene))//
 					.renderImage()//
 			        .writeToImage();		
-		}
+		}*/
 		
 		
 		
@@ -101,7 +101,7 @@ public class MiniProject1 {
 
 			camera.setImageWriter(imageWriter) //
 					.setRayTracerBase(new RayTracerBasic(scene))//
-					.renderImage(300)//
+					.renderImage(121)//
 			        .writeToImage();		
 		
 		}
@@ -141,7 +141,7 @@ public class MiniProject1 {
 
 			camera.setImageWriter(imageWriter) //
 					.setRayTracerBase(new RayTracerBasic(scene))//
-					.renderImage(100)//
+					.renderImage(121)//
 			        .writeToImage();		
 		
 		}

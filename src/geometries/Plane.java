@@ -93,23 +93,6 @@ public class Plane extends Geometry{
 		return null;
 	}
 
-	/*@Override
-    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
-
-        if (ray.getP0().equals(q0) || isZero(this.normal.dotProduct(ray.getDir()))
-                || isZero(this.normal.dotProduct(q0.subtract(ray.getP0()))))
-            return null;
-
-        double t = (this.normal.dotProduct(q0.subtract(ray.getP0()))) / (this.normal.dotProduct(ray.getDir()));
-        if (t < 0) 
-            return null;
-
-        //In case there is intersection with the plane return the point
-        GeoPoint p = new GeoPoint(this, ray.getPoint(t));
-        LinkedList<GeoPoint> result = new LinkedList<GeoPoint>();
-        result.add(p);
-        return result;
-    }*/
 
 	
 }

@@ -362,7 +362,7 @@ public class RayTracerBasic extends RayTracerBase {
 	 * @param numOfRaysLeftInRowCol how many rays should yet be traced until we get a grid with x cubes when x=the original number of rays wanted in the beam
 	 * @return The discount-factor of the shading on this intersection-geoPoint
 	 */
-	  private double adaptiveSupersamplingForTransparency(GeoPoint geoPoint, Vector n, Point gridCenter, Vector gridVright, Vector gridVup, double gridSize, double numOfRaysLeftInRowCol) {
+	  private double adaptiveSupersamplingForTransparency(GeoPoint geoPoint, Vector n, Point gridCenter, Vector gridVright, Vector gridVup, double gridSize, int numOfRaysLeftInRowCol) {
 
 		double halfGridSize=alignZero(gridSize/2);
 		// 4 corners of the grid:
@@ -387,7 +387,7 @@ public class RayTracerBasic extends RayTracerBase {
 		
 		// the numOfRaysLeftInRowCol for the grid's quarters in the next recursion level - for each grid's quarter 
 		// there'll be needed half rays in the row/column than the rays in the row/column that were needed in the original grid:
-		double nextNumOfRaysLeftInRowCol=alignZero(numOfRaysLeftInRowCol/2);
+		int nextNumOfRaysLeftInRowCol=(numOfRaysLeftInRowCol/2);
 		// if all wanted rays were traced or saved from unnecessary tracing - stop further recursions, return the average of ktrs from this level:
 		if(nextNumOfRaysLeftInRowCol<1)
 			return alignZero((ktr1+ktr2+ktr3+ktr4)/4);

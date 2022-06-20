@@ -15,8 +15,7 @@ public class Geometries extends Intersectable {
 	 */
 	public Geometries() {
 		this.bodies = new LinkedList<Intersectable>();
-		/*minBoundary = new Point3D(Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY);
-		maxBoundary = new Point3D(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY);*/
+		
 	}
 
 	/**
@@ -44,23 +43,10 @@ public class Geometries extends Intersectable {
 	public void add(Intersectable... geometries) {
 		for (var intersectable : geometries) {
 			bodies.add(intersectable);
-			//lastAdded = intersectable;
-			//setMinBoundary();
-			//setMaxBoundary();
 		}
 	}
 
-	/**
-	 * This function returns only the relevant point of the intersection using the
-	 * help of regular grid structure if the box is null that means we call the
-	 * regular find intersection (without acceleration)
-	 * 
-	 * @param ray            - Ray that intersect
-	 * @param box            - box of the scene
-	 * @param shadowRaysCase - if its shadow ray we traverse always all the way .
-	 * @param dis            - distance for find intersection
-	 * @return the relevant point
-	 */
+	
 	@Override
 	public List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistance) {
 		List<GeoPoint> points = null;
